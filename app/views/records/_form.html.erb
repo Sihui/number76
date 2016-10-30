@@ -1,0 +1,36 @@
+<%= form_for :record, url: record_path(@record), method: :patch do |f| %>
+<% if @record.errors.any? %>
+  <div id='eror_explanation'>
+    <h2>该页面存在错误</h2>
+      <%= pluralize(@record.errors.count, 'error')%>
+      <ul>
+        <% @record.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  </div>
+<% end %>
+  <p>
+    <%= f.label :上月水吨数 %>
+    <%= f.text_field :pre_water_count %>
+  </p>
+
+  <p>
+    <%= f.label :本月水吨数 %>
+    <%= f.text_field :current_water_count %>
+  </p>
+
+  <p>
+    <%= f.label :上月电度数 %>
+    <%= f.text_field :pre_ele_count %>
+  </p>
+
+  <p>
+    <%= f.label :本月电度数 %>
+    <%= f.text_field :current_ele_count %>
+  </p>
+
+  <p>
+    <%= f.submit '保存' %>
+  </p>
+<% end %>

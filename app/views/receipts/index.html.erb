@@ -1,0 +1,5 @@
+<h1>收据档案</h1>
+<% @receipts.each do |receipt| %>
+  <h3><%= receipt.date.year%>年<%=receipt.date.month%>月收据 &emsp;<%= link_to '详情', receipt_path(receipt) %>&emsp;<%= link_to '删除', receipt_path(receipt), method: :delete, data: { confirm: '是否确定删除该收据？' } %></h3>
+<% end %>
+<%= link_to '新建收据', new_receipt_path %>

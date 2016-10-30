@@ -1,0 +1,21 @@
+<p>
+  <strong>房号:</strong>
+  <%= @tenant.curr_room_number%>
+</p>
+
+<p>
+  <strong>姓名:</strong>
+  <%= @tenant.name%>
+</p>
+
+<p>
+  <strong>手机:</strong>
+  <%= @tenant.phone%>
+</p>
+
+<p>
+  <strong>房租:</strong>
+  <%= @tenant.curr_room.rent%>
+</p>
+<%= link_to '修改', edit_tenant_path(@tenant)  %>
+<%= link_to '返回', root_path %>

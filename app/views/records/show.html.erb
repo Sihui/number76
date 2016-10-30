@@ -1,0 +1,29 @@
+<style type="text/css" media="screen">
+
+table{
+border-collapse:collapse;
+border:1px solid black;
+}
+
+table td, th{
+border:1px solid black;
+padding: 5px;
+text-align:center;
+}
+</style>
+<table>
+  <tr>
+    <th>上月水吨数</th>
+    <th>本月水吨数</th>
+    <th>上月电度数</th>
+    <th>本月电度数</th>
+  </tr>
+  <tr>
+    <td><%= @record.pre_water_count%></td>
+    <td><%= @record.current_water_count%></td>
+    <td><%= @record.pre_ele_count%></td>
+    <td><%= @record.current_ele_count%></td>
+  </tr>
+</table>
+<%= link_to '修改', edit_record_path(@record)  %>
+<%= link_to '返回', root_path %>

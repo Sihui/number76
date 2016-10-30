@@ -1,0 +1,38 @@
+<%= form_for @tenant do |f| %>
+  <% if @tenant.errors.any? %>
+    <div id='eror_explanation'>
+      <h2>该页面存在错误</h2>
+        <%= pluralize(@tenant.errors.count, 'error')%>
+        <ul>
+          <% @tenant.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+    <p>
+      <%= f.label :房号 %>
+      <%= f.text_field :curr_room_number %>
+    </p>
+
+    <p>
+      <%= f.label :姓名 %>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :手机 %>
+      <%= f.text_field :phone %>
+    </p>
+
+    <p>
+      <%= f.label :房租 %>
+      <%= f.fields_for :rooms, @tenant.curr_room do |room_fields| %>
+      <%= room_fields.text_field :rent %>
+      <% end %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

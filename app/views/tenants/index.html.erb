@@ -1,0 +1,20 @@
+<h1>所有房客</h2>
+  <%= link_to '76号', controller: 'tenants' %>
+<table>
+  <tr>
+    <th>房号</th>
+    <th>姓名</th>
+  </tr>
+
+  <% @tenants.each do |t| %>
+    <tr>
+      <td><%= t.room %></td>
+      <td><%= t.name %></td>
+      <td><%= link_to '详情', tenant_path(t) %></td>
+      <td><%= link_to '修改', edit_tenant_path(t) %></td>
+      <td><%= link_to '删除', tenant_path(t), method: :delete,
+        data: { confirm: '是否确定删除改房客？' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to '新建', new_tenant_path %>

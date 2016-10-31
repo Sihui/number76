@@ -25,7 +25,7 @@ class Receipt < ApplicationRecord
       date = Date.today
       Room.all.each do |room|
         record = room.curr_record(date)
-        record.update_attributes(receipt: self) unless record.receipt_id == self.id
+        record.update_attributes!(receipt: self) unless record.receipt == self
       end
     end
 

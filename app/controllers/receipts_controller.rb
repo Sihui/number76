@@ -43,7 +43,7 @@ class ReceiptsController < ApplicationController
   private
     def get_room_data
       @room_data = {}
-      Room.all.order(:number).each do |room|
+      Room.all.each do |room|
         @room_data[room.number] = {
           tenant_path: room.admin_tenant ? edit_tenant_path(room.admin_tenant) : new_tenant_path,
           tenant_path_name: room.admin_tenant ? '修改房客资料' : '新建房客',

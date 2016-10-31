@@ -1,4 +1,4 @@
-<% @receipt.records.each do |record| %>
+<% @receipt.records.joins(:room).order('rooms.number').each do |record| %>
 <center><h2>收据</h2></center>
 &emsp;&emsp;今收到<%= record.room.admin_tenant ? record.room.admin_tenant.name : '-' %> (电话: <%= record.room.admin_tenant ? record.room.admin_tenant.phone : '-' %>) 住<%= record.room.number%>号房，交来<%= record.date.year%>年<%= record.date.month%>月1日至<%= record.date.year%>年<%= record.date.month%>月30日，房租<%= record.total_fee%>元。
 上月电表度数: <%= record.pre_ele_count%>,本月电表度数: <%= record.current_ele_count%>, 实用度数: <%= record.used_ele_count%>,实收电费: <%= record.ele_fee%> 元。上月水表吨水: <%= record.pre_water_count %>,本月水表吨数: <%= record.current_water_count%>, 实用吨数: <%= record.used_water_count%>,实收水费: <%= record.water_fee%> 元。 网费: <%= record.internet_fee %> 元,电视费: <%= record.tv_fee %> 元,卫生费: <%= record.cleaning_fee%> 元,

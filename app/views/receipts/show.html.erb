@@ -37,7 +37,7 @@ text-align:center;
     <th>电视费</th>
     <th>总费用</th>
   </tr>
-  <% @receipt.records.joins(:room).order('rooms.number').each do |record|%>
+  <% @receipt.records.joins(:room).order('rooms.id').each do |record|%>
   <tr>
     <td><%= record.room.number %></td>
     <td><%= record.room.admin_tenant ? record.room.admin_tenant.name : '-' %></td>

@@ -1,0 +1,55 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?p5i8b9');
+	src:url('fonts/icomoon.eot?#iefixp5i8b9') format('embedded-opentype'),
+		url('fonts/icomoon.woff?p5i8b9') format('woff'),
+		url('fonts/icomoon.ttf?p5i8b9') format('truetype'),
+		url('fonts/icomoon.svg?p5i8b9#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-hi:before {
+	content: "\e603";
+}
+.icon-top:before {
+	content: "\e604";
+}
+.icon-resume:before {
+	content: "\e601";
+}
+.icon-mark-github:before {
+	content: "\f00a";
+}
+.icon-organization:before {
+	content: "\f037";
+}
+.icon-briefcase:before {
+	content: "\e602";
+}
+.icon-tools:before {
+	content: "\e600";
+}
+.icon-chevron-down:before {
+	content: "\f078";
+}
+.icon-linkedin-square:before {
+	content: "\f08c";
+}
+.icon-code:before {
+	content: "\f121";
+}

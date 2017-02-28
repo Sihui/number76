@@ -40,7 +40,7 @@ text-align:center;
     <th></th>
     <th></th>
   </tr>
-  <% @receipt.records.joins(:room).order('rooms.number').each do |record| %>
+  <% @receipt.records.joins(:room).order('rooms.id').each do |record| %>
   <%= f.fields_for :records, record do |record_fields| %>
     <tr>
       <td><%= record.room.number %></td>

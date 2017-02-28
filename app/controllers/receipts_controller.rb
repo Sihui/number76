@@ -8,7 +8,7 @@ class ReceiptsController < ApplicationController
   end
 
   def new
-    @receipt = Receipt.create!
+    @receipt = Receipt.create!(date:Date.today)
     get_room_data
     render "edit"
   end

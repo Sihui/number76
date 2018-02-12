@@ -58,11 +58,16 @@ text-align:center;
     <td><%= record.current_moto_ele_count.to_f %></td>
     <td><%= record.used_moto_ele_count.to_f%></td>
     <td><%= record.cleaning_fee.to_f%></td>
-    <td><%= record.internet_fee.to_f%></td>
+    <td><%= 10 %></td>
     <td><%= record.total_fee.to_f%></td>
   </tr>
   <% end %>
 </table>
+<br><br>
+<span>总电费：</span><%= @receipt.total_ele.to_f%><br>
+<span>总水费：</span><%= @receipt.total_water.to_f%><br>
+<span>总电动车电费：</span><%= @receipt.total_moto_ele.to_f%><br>
+<span>总收费：</span><%= @receipt.total.to_f%><br>
 <br><br>
 <%= link_to '修改', edit_receipt_path(@receipt) %>
 <%= link_to '打印', {controller: 'receipts', action: 'print', id: @receipt}, target: '_blank'%>

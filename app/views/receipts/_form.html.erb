@@ -13,6 +13,14 @@ text-align:center;
 </style>
 <%= form_for @receipt do |f| %>
 <p>
+  <strong>收据显示日期</strong>
+  <%= f.fields_for :date do |ff| %>
+  <%= ff.text_field :year, placeholder: "年"%>
+  <%= ff.text_field :month, placeholder: "月"%>
+  <%= ff.text_field :date, placeholder: "日"%>
+  <% end %>
+</p>
+<p>
   <strong>水费单价:</strong>
   <%= f.fields_for :water_rate do |ff| %>
   <%= ff.text_field :rate%>
@@ -42,7 +50,6 @@ text-align:center;
     <th>本月电度数</th>
     <th>上月电动车电度数</th>
     <th>本月电动车电度数</th>
-    <th>卫生费</th>
     <th>网费</th>
     <th></th>
   </tr>
@@ -58,7 +65,6 @@ text-align:center;
       <td><%= record_fields.text_field :current_ele_count %></td>
       <td><%= record_fields.text_field :pre_moto_ele_count %></td>
       <td><%= record_fields.text_field :current_moto_ele_count %></td>
-      <td><%= record_fields.text_field :cleaning_fee %></td>
       <td><%= record_fields.text_field :internet_fee %></td>
       <td><%= link_to @room_data[record.room.number][:tenant_path_name], @room_data[record.room.number][:tenant_path] %></td>
     </tr>

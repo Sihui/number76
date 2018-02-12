@@ -21,6 +21,22 @@ class Receipt < ApplicationRecord
     receipts.count > 0 ? receipts.first : Receipt.create!(date:getDate)
   end
 
+  def total_ele
+    records.map(&:ele_fee).sum
+  end
+
+  def total_water
+    records.map(&:water_fee).sum
+  end
+
+  def total_moto_ele
+    records.map(&:moto_ele_fee).sum
+  end
+
+  def total
+    records.map(&:total_fee).sum
+  end
+
   private
     def create_records
       date = Date.today

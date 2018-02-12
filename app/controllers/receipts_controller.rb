@@ -27,6 +27,7 @@ class ReceiptsController < ApplicationController
   def update
     @receipt = Receipt.find(params[:id])
     if @receipt.update_attributes(receipt_params)
+      @receipt.update_attributes(date: receipt_date)
       redirect_to @receipt
     else
       render 'index'
@@ -60,5 +61,10 @@ class ReceiptsController < ApplicationController
         electricity_rate_attributes: [:id, :rate],
         moto_electricity_rate_attributes: [:id, :rate]
       )
+    end
+
+    def receipt_date
+      r_date = params[:receipt][:date]
+      Date.new(r_date[:year].to_i, r_date[:month].to_i, r_date[:date].to_i)
     end
 end

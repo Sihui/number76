@@ -25,7 +25,12 @@ class Record < ApplicationRecord
   belongs_to :receipt
 
   def total_fee
-    moto_ele_fee + ele_fee + water_fee + cleaning_fee + tv_fee + internet_fee + room.rent
+    temp = moto_ele_fee + ele_fee + water_fee
+    if temp > 0 #someone's living here
+      tv_fee + internet_fee + room.rent + 10 # 10 is for cleaning
+    else
+      0
+    end
   end
 
   def ele_fee

@@ -25,18 +25,25 @@ text-align:center;
   <%= ff.text_field :rate%>
   <% end %>
 </p>
+<p>
+  <strong>电动车电费单价:</strong>
+  <%= f.fields_for :moto_electricity_rate do |ff| %>
+  <%= ff.text_field :rate%>
+  <% end %>
+</p>
 <table>
   <tr>
     <th>房号</th>
     <th>姓名</th>
     <th>房租</th>
     <th>上月水吨数</th>
-    <th>上月电度数</th>
     <th>本月水吨数</th>
+    <th>上月电度数</th>
     <th>本月电度数</th>
+    <th>上月电动车电度数</th>
+    <th>本月电动车电度数</th>
     <th>卫生费</th>
     <th>网费</th>
-    <th>电视费</th>
     <th></th>
     <th></th>
   </tr>
@@ -47,12 +54,13 @@ text-align:center;
       <td><%= @room_data[record.room.number][:admin_tenant] ? @room_data[record.room.number][:admin_tenant].name : '-' %></td>
       <td><%= @room_data[record.room.number][:rent].to_f %></td>
       <td><%= record.pre_water_count.to_f %></td>
-      <td><%= record.pre_ele_count.to_f %></td>
       <td><%= record_fields.text_field :current_water_count %></td>
+      <td><%= record.pre_ele_count.to_f %></td>
       <td><%= record_fields.text_field :current_ele_count %></td>
+      <td><%= record.pre_moto_ele_count.to_f %></td>
+      <td><%= record_fields.text_field :current_moto_ele_count %></td>
       <td><%= record_fields.text_field :cleaning_fee %></td>
       <td><%= record_fields.text_field :internet_fee %></td>
-      <td><%= record_fields.text_field :tv_fee %></td>
       <td><%= link_to @room_data[record.room.number][:tenant_path_name], @room_data[record.room.number][:tenant_path] %></td>
       <td><%= link_to '修改水电', edit_record_path(record.id) %></td>
     </tr>

@@ -3,7 +3,7 @@
 # Table name: receipts
 #
 #  id         :integer          not null, primary key
-#  date       :datetime         default(Sun, 30 Oct 2016 15:37:14 UTC +00:00), not null
+#  date       :datetime         default(Mon, 12 Feb 2018 12:26:51 UTC +00:00), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -12,8 +12,9 @@ class Receipt < ApplicationRecord
   has_many :records
   has_one :water_rate
   has_one :electricity_rate
+  has_one :moto_electricity_rate
   after_create :create_records, :create_rates
-  accepts_nested_attributes_for :records, :water_rate, :electricity_rate
+  accepts_nested_attributes_for :records, :water_rate, :electricity_rate, :moto_electricity_rate
 
   def self.get_receipt(getDate)
     receipts = Receipt.select{|r| r.date.year == getDate.year && r.date.month == getDate.month}
@@ -32,6 +33,7 @@ class Receipt < ApplicationRecord
     def create_rates
       create_water_rate
       create_ele_rate
+      create_moto_ele_rate
     end
 
     def create_water_rate
@@ -42,5 +44,10 @@ class Receipt < ApplicationRecord
     def create_ele_rate
       rate = ElectricityRate.last ? ElectricityRate.last.rate : 0
       ElectricityRate.create!(rate:rate, date: date, receipt_id: id)
+    end
+
+    def create_moto_ele_rate
+      rate = MotoElectricityRate.last ? MotoElectricityRate.last.rate : 0
+      MotoElectricityRate.create!(rate:rate, date: date, receipt_id: id)
     end
 end

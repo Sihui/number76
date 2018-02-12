@@ -21,6 +21,10 @@ text-align:center;
   <strong>电费单价:</strong>
   <%= @receipt.electricity_rate.rate.to_f%>
 </p>
+<p>
+  <strong>电动车电费单价:</strong>
+  <%= @receipt.moto_electricity_rate.rate.to_f%>
+</p>
 <table>
   <tr>
     <th>房号</th>
@@ -32,9 +36,11 @@ text-align:center;
     <th>上月电度数</th>
     <th>本月电度数</th>
     <th>使用电度数</th>
+    <th>上月电动车电度数</th>
+    <th>本月电动车电度数</th>
+    <th>使用电动车电度数</th>
     <th>卫生费</th>
     <th>网费</th>
-    <th>电视费</th>
     <th>总费用</th>
   </tr>
   <% @receipt.records.joins(:room).order('rooms.id').each do |record|%>
@@ -48,9 +54,11 @@ text-align:center;
     <td><%= record.pre_ele_count.to_f %></td>
     <td><%= record.current_ele_count.to_f %></td>
     <td><%= record.used_ele_count.to_f%></td>
+    <td><%= record.pre_moto_ele_count.to_f %></td>
+    <td><%= record.current_moto_ele_count.to_f %></td>
+    <td><%= record.used_moto_ele_count.to_f%></td>
     <td><%= record.cleaning_fee.to_f%></td>
     <td><%= record.internet_fee.to_f%></td>
-    <td><%= record.tv_fee.to_f%></td>
     <td><%= record.total_fee.to_f%></td>
   </tr>
   <% end %>

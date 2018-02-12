@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030173255) do
+ActiveRecord::Schema.define(version: 20180212125218) do
 
   create_table "electricity_rates", force: :cascade do |t|
-    t.datetime "date",       default: '2016-10-30 22:48:19', null: false
+    t.datetime "date",       default: '2018-02-12 12:26:51', null: false
     t.decimal  "rate",       default: "0.0",                 null: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
@@ -21,33 +21,43 @@ ActiveRecord::Schema.define(version: 20161030173255) do
     t.index ["receipt_id"], name: "electricity_rate_index_receipt_id"
   end
 
+  create_table "moto_electricity_rates", force: :cascade do |t|
+    t.datetime "date",       default: '2018-02-12 13:15:19', null: false
+    t.decimal  "rate",       default: "0.0",                 null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.integer  "receipt_id"
+  end
+
   create_table "receipts", force: :cascade do |t|
-    t.datetime "date",       default: '2016-10-30 22:48:19', null: false
+    t.datetime "date",       default: '2018-02-12 12:26:51', null: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
   end
 
   create_table "records", force: :cascade do |t|
-    t.datetime "date",                default: '2016-10-30 22:48:19', null: false
-    t.decimal  "pre_water_count",     default: "0.0",                 null: false
-    t.decimal  "current_water_count", default: "0.0",                 null: false
-    t.decimal  "pre_ele_count",       default: "0.0",                 null: false
-    t.decimal  "current_ele_count",   default: "0.0",                 null: false
-    t.decimal  "internet_fee",        default: "0.0",                 null: false
-    t.decimal  "tv_fee",              default: "0.0",                 null: false
-    t.decimal  "cleaning_fee",        default: "0.0",                 null: false
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.integer  "room_id",             default: 0,                     null: false
-    t.integer  "tenant_id",           default: 0,                     null: false
+    t.datetime "date",                   default: '2018-02-12 12:26:51', null: false
+    t.decimal  "pre_water_count",        default: "0.0",                 null: false
+    t.decimal  "current_water_count",    default: "0.0",                 null: false
+    t.decimal  "pre_ele_count",          default: "0.0",                 null: false
+    t.decimal  "current_ele_count",      default: "0.0",                 null: false
+    t.decimal  "internet_fee",           default: "0.0",                 null: false
+    t.decimal  "tv_fee",                 default: "0.0",                 null: false
+    t.decimal  "cleaning_fee",           default: "0.0",                 null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.integer  "room_id"
+    t.integer  "tenant_id"
     t.integer  "receipt_id"
+    t.decimal  "pre_moto_ele_count",     default: "0.0",                 null: false
+    t.decimal  "current_moto_ele_count", default: "0.0",                 null: false
     t.index ["receipt_id"], name: "index_receipt_id"
     t.index ["room_id"], name: "index_records_on_room_id"
     t.index ["tenant_id"], name: "index_records_on_tenant_id"
   end
 
   create_table "room_tenant_connections", force: :cascade do |t|
-    t.integer  "room_id",    default: 0,     null: false
+    t.integer  "room_id"
     t.integer  "tenant_id"
     t.boolean  "active",     default: false, null: false
     t.boolean  "is_admin",   default: false, null: false
@@ -71,7 +81,7 @@ ActiveRecord::Schema.define(version: 20161030173255) do
   end
 
   create_table "water_rates", force: :cascade do |t|
-    t.datetime "date",       default: '2016-10-30 22:48:19', null: false
+    t.datetime "date",       default: '2018-02-12 12:26:51', null: false
     t.decimal  "rate",       default: "0.0",                 null: false
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false

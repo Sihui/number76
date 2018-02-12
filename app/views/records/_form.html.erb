@@ -31,6 +31,16 @@
   </p>
 
   <p>
+    <%= f.label :上月电动车电度数 %>
+    <%= f.text_field :pre_moto_ele_count %>
+  </p>
+
+  <p>
+    <%= f.label :本月电动车电度数 %>
+    <%= f.text_field :current_moto_ele_count %>
+  </p>
+
+  <p>
     <%= f.submit '保存' %>
   </p>
 <% end %>

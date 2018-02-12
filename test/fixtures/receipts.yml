@@ -3,7 +3,7 @@
 # Table name: receipts
 #
 #  id         :integer          not null, primary key
-#  date       :datetime         default(Sun, 30 Oct 2016 15:37:14 UTC +00:00), not null
+#  date       :datetime         default(Mon, 12 Feb 2018 12:26:51 UTC +00:00), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

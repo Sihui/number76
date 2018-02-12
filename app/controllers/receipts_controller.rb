@@ -55,9 +55,10 @@ class ReceiptsController < ApplicationController
 
     def receipt_params
       params.require(:receipt).permit(
-        records_attributes: [:id, :current_ele_count, :current_water_count, :internet_fee, :cleaning_fee, :tv_fee],
+        records_attributes: [:id, :current_moto_ele_count, :current_ele_count, :current_water_count, :internet_fee, :cleaning_fee, :tv_fee],
         water_rate_attributes: [:id, :rate],
-        electricity_rate_attributes: [:id, :rate]
+        electricity_rate_attributes: [:id, :rate],
+        moto_electricity_rate_attributes: [:id, :rate]
       )
     end
 end

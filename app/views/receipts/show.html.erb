@@ -67,6 +67,7 @@ text-align:center;
 <span>总电费：</span><%= @receipt.total_ele.to_f%><br>
 <span>总水费：</span><%= @receipt.total_water.to_f%><br>
 <span>总电动车电费：</span><%= @receipt.total_moto_ele.to_f%><br>
+<span>总房租：</span><%= @receipt.total_rent.to_f%><br>
 <span>总收费：</span><%= @receipt.total.to_f%><br>
 <br><br>
 <%= link_to '修改', edit_receipt_path(@receipt) %>

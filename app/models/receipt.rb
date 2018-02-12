@@ -33,6 +33,10 @@ class Receipt < ApplicationRecord
     records.map(&:moto_ele_fee).sum
   end
 
+  def total_rent
+    records.map(&:rent_fee).sum
+  end
+
   def total
     records.map(&:total_fee).sum
   end

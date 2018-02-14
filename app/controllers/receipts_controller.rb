@@ -27,7 +27,6 @@ class ReceiptsController < ApplicationController
   def update
     @receipt = Receipt.find(params[:id])
     if @receipt.update_attributes(receipt_params)
-      @receipt.update_attributes(date: receipt_date)
       redirect_to @receipt
     else
       render 'index'
@@ -55,16 +54,24 @@ class ReceiptsController < ApplicationController
     end
 
     def receipt_params
-      params.require(:receipt).permit(
+      update_params = params.require(:receipt).permit(
         records_attributes: [:id, :pre_moto_ele_count, :current_moto_ele_count, :pre_ele_count, :current_ele_count, :pre_water_count, :current_water_count, :internet_fee, :cleaning_fee, :tv_fee],
         water_rate_attributes: [:id, :rate],
         electricity_rate_attributes: [:id, :rate],
         moto_electricity_rate_attributes: [:id, :rate]
       )
+      if date_provided?
+        update_params.merge!(date: receipt_date)
+      end
+      update_params
     end
 
     def receipt_date
       r_date = params[:receipt][:date]
       Date.new(r_date[:year].to_i, r_date[:month].to_i, r_date[:date].to_i)
+    end
+
+    def date_provided?
+      !params[:receipt][:date][:year].empty?
     end
 end

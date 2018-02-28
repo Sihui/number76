@@ -5,6 +5,6 @@
 上月电动车电表度数: <%= record.pre_moto_ele_count%>, 本月电动车电表度数: <%= record.current_moto_ele_count%>, 实用度数: <%= record.used_moto_ele_count%>, 电动车电费 <%= record.moto_ele_fee %>  元。网费: <%= record.internet_fee %> 元, 卫生费: 10 元,
 共收人民币 <%= record.total_fee %> 元.<br>
 提示: 每月必需5号前交租，否则停水停电。退房需提前一个月告知，否则押金不退。合约未满提前退房，押金不退。<br>
-<%= @print_year %>年<%= record.date.month %>月1日<br>
+<%= @print_year %>年<%= @receipt.date.month %>月1日<br>
 备注:<u>微信号：h13902504788</u><br><br>
 <% end %>

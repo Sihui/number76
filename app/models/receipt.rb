@@ -67,7 +67,8 @@ class Receipt < ApplicationRecord
     end
 
     def create_moto_ele_rate
-      rate = MotoElectricityRate.last ? MotoElectricityRate.last.rate : 0
+      # rate = MotoElectricityRate.last ? MotoElectricityRate.last.rate : 0
+      rate = 0
       MotoElectricityRate.create!(rate:rate, date: date, receipt_id: id)
     end
 end

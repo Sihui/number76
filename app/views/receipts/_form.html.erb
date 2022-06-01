@@ -33,12 +33,6 @@ text-align:center;
   <%= ff.text_field :rate%>
   <% end %>
 </p>
-<p>
-  <strong>电动车电费单价:</strong>
-  <%= f.fields_for :moto_electricity_rate do |ff| %>
-  <%= ff.text_field :rate%>
-  <% end %>
-</p>
 <table>
   <tr>
     <th>房号</th>
@@ -48,8 +42,6 @@ text-align:center;
     <th>本月水吨数</th>
     <th>上月电度数</th>
     <th>本月电度数</th>
-    <th>上月电动车电度数</th>
-    <th>本月电动车电度数</th>
     <th>网费</th>
     <th></th>
   </tr>
@@ -63,8 +55,6 @@ text-align:center;
       <td><%= record_fields.text_field :current_water_count %></td>
       <td><%= record_fields.text_field :pre_ele_count %></td>
       <td><%= record_fields.text_field :current_ele_count %></td>
-      <td><%= record_fields.text_field :pre_moto_ele_count %></td>
-      <td><%= record_fields.text_field :current_moto_ele_count %></td>
       <td><%= record_fields.text_field :internet_fee %></td>
       <td><%= link_to @room_data[record.room.number][:tenant_path_name], @room_data[record.room.number][:tenant_path] %></td>
     </tr>

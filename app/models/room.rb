@@ -31,7 +31,10 @@ class Room < ApplicationRecord
       r = self.records.create!(
         date: date,
         pre_ele_count: pre_record ? pre_record.current_ele_count : 0,
-        pre_water_count: pre_record ? pre_record.current_water_count : 0)
+        pre_water_count: pre_record ? pre_record.current_water_count : 0,
+        pre_moto_ele_count: pre_record ? pre_record.pre_moto_ele_count : 0,
+        current_moto_ele_count: 0,
+      )
       return r
     end
   end

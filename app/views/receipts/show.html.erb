@@ -36,9 +36,6 @@ text-align:center;
     <th>上月电度数</th>
     <th>本月电度数</th>
     <th>使用电度数</th>
-    <th>上月电动车电度数</th>
-    <th>本月电动车电度数</th>
-    <th>使用电动车电度数</th>
     <th>卫生费</th>
     <th>网费</th>
     <th>总费用</th>
@@ -54,9 +51,6 @@ text-align:center;
     <td><%= record.pre_ele_count.to_f %></td>
     <td><%= record.current_ele_count.to_f %></td>
     <td><%= record.used_ele_count.to_f%></td>
-    <td><%= record.pre_moto_ele_count.to_f %></td>
-    <td><%= record.current_moto_ele_count.to_f %></td>
-    <td><%= record.used_moto_ele_count.to_f%></td>
     <td><%= 10 %></td>
     <td><%= record.internet_fee.to_f%></td>
     <td><%= record.total_fee.to_f%></td>
@@ -66,7 +60,6 @@ text-align:center;
 <br><br>
 <span>总电费：</span><%= @receipt.total_ele.to_f%><br>
 <span>总水费：</span><%= @receipt.total_water.to_f%><br>
-<span>总电动车电费：</span><%= @receipt.total_moto_ele.to_f%><br>
 <span>总房租：</span><%= @receipt.total_rent.to_f%><br>
 <span>总收费：</span><%= @receipt.total.to_f%><br>
 <br><br>
